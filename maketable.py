@@ -96,7 +96,7 @@ c_altaz16 = c.transform_to(AltAz(obstime=obstime16,location=obsloc1))
 # print("May: 3am: Altitude (degs): {:.2f} Azimuth (degs): {:.2f}".format(c_altaz16.alt, c_altaz16.az))
 
 table = [['Month', 'Time', 'Altitude (degs)', 'Azimuth (degs)'], 
-         ['April', '10pm', c_altaz.alt,c_altaz.az ], 
+         ['April', '10pm', '{:.2f}'.format(c_altaz.alt),'{:.2f}'.format(c_altaz.az) ], 
          ['May', '10pm', c_altaz1.alt,c_altaz1.az],  
          ['April', '11pm', c_altaz2.alt,c_altaz2.az ], 
          ['May', '11pm', c_altaz12.alt,c_altaz12.az],
