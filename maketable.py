@@ -8,9 +8,10 @@ Created on Fri Mar 10 12:22:30 2023
 
 from astropy import units as u
 from astropy import constants as c
-from astropy.coordinates import SkyCoord
 from astropy.time import Time
 from astropy.coordinates import SkyCoord, EarthLocation, AltAz
+from astropy.table import Table
+import numpy as np
 
 #to make tables
 #pip install tabulate
@@ -201,6 +202,11 @@ table = [['Month', 'Time', 'Altitude (degs)', 'Azimuth (degs)'],
          ['June', '2am', '{:.2f}'.format(c_altaz17.alt),'{:.2f}'.format(c_altaz17.az)], 
          ]
 print(tabulate(table, headers='firstrow', tablefmt='fancy_grid'))
+
+#Now write to a csv file:
+dat = Table(np.array(table[1:]), names=table[0])
+dat.write('star_altaz.csv', format='ascii.csv', overwrite=True)
+
 
 #12 47 43.26877 -59 41 19.5792 betcru
 #06 45 08.91728 -16 42 58.0171 sirius
